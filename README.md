@@ -1,3 +1,3 @@
 # ToDoConsole
 Beginers code!
-Wrote to rean code
+Wrote to learn programming

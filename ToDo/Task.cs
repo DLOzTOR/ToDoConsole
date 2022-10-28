@@ -5,19 +5,19 @@ namespace ToDo
         private int id;
         public DateTime date;
         public string Title;
-        public bool Done;
+        public bool State;
         public Task(string Title, int id)
         {
             this.id = id; 
             this.Title = Title;
-            this.Done = false;
+            this.State = false;
             this.date = DateTime.Now;
         }
         public Task(string Title, int id, DateTime date, bool done)
         {
             this.id = id;
             this.Title = Title;
-            this.Done = done;
+            this.State = done;
             this.date = date;
         }
 

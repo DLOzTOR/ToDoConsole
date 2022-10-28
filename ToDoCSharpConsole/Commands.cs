@@ -11,7 +11,7 @@ namespace ToDoCSharpConsole
             new Help("help", "show command list", CommandType.Any),
             new Clear("clear", "clean console", CommandType.Any),
             new NewVault("create", "create vault", CommandType.Load),
-            new LoadVault("load", "load vault by paht", CommandType.Load),
+            new LoadVault("load", "load vault by path", CommandType.Load),
             new RecentVaults("recent","open recent vault", CommandType.Load),
             new Exit("exit","close app", CommandType.Load),
             new NewTask("new", "create new task", CommandType.List),

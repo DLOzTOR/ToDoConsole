@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -34,14 +35,7 @@ namespace ToDo
             }
             else 
                 Console.WriteLine("Directory doethn't exist");
-            string DATAPAth = Environment.CurrentDirectory + @"\" + "DATA";
-            string RecentVaultsPath = DATAPAth + @"\" + "RecentVaults.txt";
-            if (Directory.Exists(DATAPAth) == false) Directory.CreateDirectory(DATAPAth);
-            if (File.Exists(RecentVaultsPath) == false) File.Create(RecentVaultsPath).Close();
-            List<string> VaultsList = new List<string>();
-            VaultsList.AddRange(File.ReadAllLines(RecentVaultsPath));
-            VaultsList.Add(path + "|" + name);
-            File.WriteAllLines(RecentVaultsPath, VaultsList);
+            AddRecent();
         }
         public static void LoadVault(string path, string name) {
             if (Directory.Exists(path + @"\" + name) &&
@@ -56,8 +50,19 @@ namespace ToDo
             }
             else
                 Console.WriteLine("Vault damaged or doethn't exis");
+            AddRecent();
         }
-
+        public static void AddRecent()
+        {
+            string DATAPAth = Environment.CurrentDirectory + @"\" + "DATA";
+            string RecentVaultsPath = DATAPAth + @"\" + "RecentVaults.txt";
+            if (Directory.Exists(DATAPAth) == false) Directory.CreateDirectory(DATAPAth);
+            if (File.Exists(RecentVaultsPath) == false) File.Create(RecentVaultsPath).Close();
+            List<string> VaultsList = new List<string>();
+            VaultsList.AddRange(File.ReadAllLines(RecentVaultsPath));
+            if(VaultsList.Contains(path + "|" + name) == false)VaultsList.Add(path + "|" + name);
+            File.WriteAllLines(RecentVaultsPath, VaultsList);
+        }
         public static string[] RecentVaults()
         {
             string DATAPAth = Environment.CurrentDirectory + @"\" + "DATA";

@@ -222,7 +222,7 @@ namespace ToDoCSharpConsole
             do
             {
                 id = Convert.ToInt32(Console.ReadLine());
-                if (id <= 0 || id > recentVaults.Length) break;
+                if (id >= 0 || id > recentVaults.Length) break;
                 Console.WriteLine("Wrong id");
             } while (true);
             string[] pathName;

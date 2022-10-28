@@ -3,9 +3,10 @@ using System.Collections.Generic;
 namespace ToDo
 {
     public static class TaskTracker{
-        private static int taskCount = 0;
+        public static int taskCount = 0;
         public static List<Task> taskList = new List<Task>();
         public static AppState state = AppState.Load;
+        public static bool ShoodClose= false;
         public static void CreateTask(string title)
         {
             taskList.Add(new Task(title, taskCount));

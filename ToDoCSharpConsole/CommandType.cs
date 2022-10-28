@@ -4,6 +4,6 @@ namespace ToDoCSharpConsole
         Load, //Set/Load commands
         List, //Task list commands
         Task, //Task editor commands
-        Any //Any app state commands
+        Any, //Any app state commands
     }
 }
